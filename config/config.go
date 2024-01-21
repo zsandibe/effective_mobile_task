@@ -24,6 +24,7 @@ func NewConfig() (Config, error) {
 	if err != nil {
 		return Config{}, err
 	}
+
 	return Config{
 		Driver:       os.Getenv("DRIVER"),
 		User:         os.Getenv("DB_USER"),
