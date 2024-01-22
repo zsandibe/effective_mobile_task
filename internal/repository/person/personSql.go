@@ -9,7 +9,7 @@ type PersonSql struct {
 	db *sqlx.DB
 }
 type Person interface {
-	FindPersonsList(searchParams domain.SearchParams) ([]domain.Person, error)
+	FindPersonsBySearch(searchParams domain.SearchParams) ([]domain.Person, error)
 	FindPersonById(personId int) (domain.Person, error)
 	AddPerson(person domain.Person) (int, error)
 	DeletePersonById(personId int) error

@@ -16,7 +16,7 @@ func Start() {
 	}
 	pkg.InfoLog.Println("Config loaded")
 
-	db, err := storage.NewPostgres(config)
+	db, err := storage.NewPostgres(*config)
 	if err != nil {
 		pkg.ErrorLog.Printf("Can`t connect to database: %v", err)
 		return
