@@ -12,7 +12,7 @@ type Person interface {
 	FindPersonsBySearch(searchParams domain.SearchParams) ([]domain.Person, error)
 	FindPersonById(personId int) (domain.Person, error)
 	AddPerson(person domain.Person) (int, error)
-	DeletePersonById(personId int) error
+	DeletePersonById(id int) error
 	UpdatePersonById(person domain.Person) error
 }
 

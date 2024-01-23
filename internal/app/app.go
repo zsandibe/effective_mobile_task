@@ -1,9 +1,9 @@
 package app
 
 import (
-	"fmt"
-
 	"github.com/zsandibe/effective_mobile_task/config"
+	"github.com/zsandibe/effective_mobile_task/internal/repository"
+	"github.com/zsandibe/effective_mobile_task/internal/service"
 	"github.com/zsandibe/effective_mobile_task/internal/storage"
 	"github.com/zsandibe/effective_mobile_task/pkg"
 )
@@ -21,5 +21,12 @@ func Start() {
 		pkg.ErrorLog.Printf("Can`t connect to database: %v", err)
 		return
 	}
-	fmt.Println(db)
+	pkg.InfoLog.Println("Database loaded")
+
+	repository := repository.NewRepository(db)
+	pkg.InfoLog.Println("Repository loaded")
+
+	service := service.NewPersonService(repository, config)
+	pkg.InfoLog.Println("Service loaded")
+
 }

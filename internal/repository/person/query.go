@@ -53,11 +53,11 @@ func (r *PersonSql) AddPerson(person domain.Person) (int, error) {
 	return id, nil
 }
 
-func (r *PersonSql) DeletePersonById(personId int) error {
+func (r *PersonSql) DeletePersonById(id int) error {
 	query := `
 		DELETE FROM persons WHERE ID = ?
 	`
-	if _, err := r.db.Exec(query, personId); err != nil {
+	if _, err := r.db.Exec(query, id); err != nil {
 		return fmt.Errorf("can`t delete person: %v", err)
 	}
 	return nil
