@@ -40,7 +40,6 @@ func NewConfig() (*Config, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	return &Config{
 		databaseConfig{
 			Driver:       os.Getenv("DRIVER"),

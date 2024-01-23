@@ -9,5 +9,7 @@ type ApiGenderResponse struct {
 }
 
 type ApiNationalityResponse struct {
-	Nationality string `json:"nationality"`
+	Nationality []struct {
+		CountryId string `json:"country_id"`
+	} `json:"country"`
 }

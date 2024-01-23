@@ -47,7 +47,7 @@ func (r *PersonSql) AddPerson(person domain.Person) (int, error) {
 		INSERT INTO persons (Name,Surname,Patronymic,Age,Gender,Nationality) VALUES ($1,$2,$3,$4,$5,$6)
 		RETURNING ID 
 	`
-	if err := r.db.QueryRow(query, &person.Id, &person.Name, &person.Surname, &person.Patronymic, &person.Age, &person.Gender, &person.Nationality).Scan(&id); err != nil {
+	if err := r.db.QueryRow(query, &person.Name, &person.Surname, &person.Patronymic, &person.Age, &person.Gender, &person.Nationality).Scan(&id); err != nil {
 		return 0, fmt.Errorf("can`t add person: %v", err)
 	}
 	return id, nil

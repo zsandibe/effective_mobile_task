@@ -9,7 +9,7 @@ import (
 	"github.com/zsandibe/effective_mobile_task/pkg"
 )
 
-func NewPostgres(config config.Config) (*sqlx.DB, error) {
+func NewPostgres(config *config.Config) (*sqlx.DB, error) {
 	dbSource := fmt.Sprintf("%s://%s:%s@%s:%d/%s?sslmode=disable", config.Database.Driver, config.Database.User, config.Database.Password, config.Database.Host, config.Database.Port, config.Database.DatabaseName)
 	db, err := sqlx.Open(config.Database.Driver, dbSource)
 	if err != nil {
